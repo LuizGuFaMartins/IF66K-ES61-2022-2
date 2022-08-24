@@ -1,5 +1,4 @@
-# Projeto de Oficina de integração 2
-## IF66K-ES61-2022-2 
+# Projeto de Oficina de integração 2 - IF66K-ES61-2022-2 
 Docente da disciplina: Willian Massami Watanabe
 
 ## Animal center
