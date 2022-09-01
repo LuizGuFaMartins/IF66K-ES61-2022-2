@@ -1,6 +1,6 @@
 package com.myproject.project_if66k.tests;
 
-import com.myproject.project_if66k.controllers.example;
+import com.myproject.project_if66k.controllers.Example;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,7 +35,7 @@ public class exampleTest {
         int a = 3;
         int b = 2;
         int expResult = 4;
-        int result = example.somar(a, b);        
+        int result = Example.somar(a, b);        
         assertEquals(expResult, result);        
     }
     
