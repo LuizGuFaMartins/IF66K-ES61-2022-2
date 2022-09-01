@@ -1,7 +1,14 @@
 # Projeto de Oficina de integração 2 - IF66K-ES61-2022-2 
 ###### Docente da disciplina: Willian Massami Watanabe
 
+<<<<<<< HEAD
 ### Animal center
+=======
+### Membros do Grupo:
+- Gabriel Henrique Pissaia
+- Luiz Gustavo Farabello Martins
+- Daniel Ryouhei Nakano
+>>>>>>> fbf6638311beb93669718bbdc942ff995281e572
 
 ### Projeto: Animal center
 
