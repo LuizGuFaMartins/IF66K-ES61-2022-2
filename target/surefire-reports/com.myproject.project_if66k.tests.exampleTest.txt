@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.myproject.project_if66k.tests.exampleTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in com.myproject.project_if66k.tests.exampleTest
-testSomar  Time elapsed: 0.021 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <4> but was: <5>
-	at com.myproject.project_if66k.tests.exampleTest.testSomar(exampleTest.java:39)
-
