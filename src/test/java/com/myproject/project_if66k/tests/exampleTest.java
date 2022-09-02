@@ -34,7 +34,7 @@ public class exampleTest {
         System.out.println("somar");
         int a = 3;
         int b = 2;
-        int expResult = 4;
+        int expResult = 5;
         int result = Example.somar(a, b);        
         assertEquals(expResult, result);        
     }
