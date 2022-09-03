@@ -1,6 +1,5 @@
-package com.myproject.project_if66k.tests;
+package com.myproject.project_if66k.controllers;
 
-import com.myproject.project_if66k.controllers.Example;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,9 +7,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class exampleTest {
+public class ClienteControllerTest {
     
-    public exampleTest() {
+    public ClienteControllerTest() {
     }
     
     @BeforeAll
@@ -30,13 +29,9 @@ public class exampleTest {
     }
 
     @Test
-    public void testSomar() {
-        System.out.println("somar");
-        int a = 3;
-        int b = 2;
-        int expResult = 5;
-        int result = Example.somar(a, b);        
-        assertEquals(expResult, result);        
+    public void testSomeMethod() {
+        
+        fail("The test case is a prototype.");
     }
     
 }

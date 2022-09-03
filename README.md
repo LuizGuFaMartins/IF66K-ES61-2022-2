@@ -6,7 +6,7 @@
 - Luiz Gustavo Farabello Martins
 - Daniel Ryouhei Nakano
 
-### Projeto: Animal center
+### Projeto: 4Pets
 
 ### Contexto
 Atualmente o mercado veterinário tem se mostrado cada vez mais presente na economia brasileira e mundial. Segundo o instituto Pet Brasil o setor teve um crescimento estimado de 13,5% no ano de 2020 com faturamento acima dos R$40 bilhões no país. Esse crescimento no setor tem relação com o número crescente da procura por animais de estimação, segundo ONGS de proteção a animais o número de procura por adoção de animais teve um aumento de até 50% durante a quarentena no Brasil. 

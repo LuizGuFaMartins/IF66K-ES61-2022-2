@@ -1,5 +1,5 @@
 package com.myproject.project_if66k.models;
 
-public class ExampleModel {
+public class Funcionario {
     
 }
