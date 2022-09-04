@@ -32,4 +32,4 @@ Com base nessa análise pode-se concluir que com o aumento das consultas, as cl�
 - MVC, utilizando testes unitários com JUnit.
 
 ### Arquiteruta do projeto
-<img src="https://imgur.com/gallery/gjSuwS2.png">
+<img src="https://imgur.com/gallery/gjSuwS2.jpg">
