@@ -32,4 +32,4 @@ Com base nessa análise pode-se concluir que com o aumento das consultas, as cl�
 - MVC, utilizando testes unitários com JUnit.
 
 ### Arquiteruta do projeto
-![pacote controllers apontando para os pacotes views, dao e models e models apontado para views]([https://imgur.com/5dB7uJD](https://imgur.com/gallery/gjSuwS2))
+![pacote controllers apontando para os pacotes views, dao e models e models apontado para views](https://imgur.com/gallery/gjSuwS2)
