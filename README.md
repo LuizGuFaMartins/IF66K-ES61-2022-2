@@ -31,4 +31,5 @@ Com base nessa análise pode-se concluir que com o aumento das consultas, as cl�
 ### Padrão de projeto
 - MVC, utilizando testes unitários com JUnit.
 
-
+### Arquiteruta do projeto
+<img src="https://i.imgur.com/5dB7uJD.png">
