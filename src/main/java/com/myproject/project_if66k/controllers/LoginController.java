@@ -9,7 +9,7 @@ public class LoginController {
 
     public boolean login(String login, String senha) {
         LoginDAO dao = new LoginDAO();  
-        boolean isLogged = dao.readUsuario(login, senha);
+        boolean isLogged = dao.readUser(login, senha);
         
         if ("".equals(login) || "".equals(senha)) {
             JOptionPane.showMessageDialog(null, "Erro! Os campos não podem estar vazios...");

@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 public class LoginDAO {
     
-    public boolean readUsuario(String login_user, String senha_user){
+    public boolean readUser(String login_user, String senha_user){
         Connection con = ConnectionFactory.openConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;   
