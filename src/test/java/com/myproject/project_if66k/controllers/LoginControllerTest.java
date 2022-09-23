@@ -44,7 +44,7 @@ public class LoginControllerTest {
     }
 
     @Test
-    public void testLogin() {
+    public void testLoginFalse() {
         System.out.println("login");
         String login = "";
         String senha = "";
@@ -52,6 +52,16 @@ public class LoginControllerTest {
         when(loginDAO.readUser(login, senha)).thenReturn(false);        
         assertFalse(loginDAO.readUser(login, senha));       
 
+    }
+    
+    @Test
+    public void testLoginTrue() {
+        System.out.println("login");
+        String login = "";
+        String senha = "";
+        
+        when(loginDAO.readUser(login, senha)).thenReturn(true);        
+        assertTrue(loginDAO.readUser(login, senha));
     }
     
 }
