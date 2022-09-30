@@ -56,12 +56,12 @@ public class FuncionarioView extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         campoID = new javax.swing.JTextField();
         jBCadastro = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jBCadastro1 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro Funcionario");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBackground(new java.awt.Color(60, 112, 34));
 
@@ -96,8 +96,24 @@ public class FuncionarioView extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel4.setText("4PETS");
+        jBCadastro1.setBackground(new java.awt.Color(28, 24, 79));
+        jBCadastro1.setForeground(new java.awt.Color(255, 255, 255));
+        jBCadastro1.setText("Voltar");
+        jBCadastro1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBCadastro1MouseClicked(evt);
+            }
+        });
+        jBCadastro1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCadastro1ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setBackground(new java.awt.Color(28, 24, 79));
+        jLabel13.setFont(new java.awt.Font("Gill Sans MT Ext Condensed Bold", 1, 48)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(28, 24, 79));
+        jLabel13.setText("4pets");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,16 +147,19 @@ public class FuncionarioView extends javax.swing.JFrame {
                         .addGap(236, 236, 236)
                         .addComponent(jBLimpar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(jLabel4)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                        .addGap(180, 180, 180)
+                        .addComponent(jBCadastro1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(jLabel13)))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addGap(45, 45, 45)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel13)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -166,7 +185,9 @@ public class FuncionarioView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBCadastro)
                     .addComponent(jBLimpar))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBCadastro1)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -211,6 +232,15 @@ public class FuncionarioView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jBCadastroMouseClicked
 
+    private void jBCadastro1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBCadastro1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBCadastro1MouseClicked
+
+    private void jBCadastro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastro1ActionPerformed
+        MenuView.getMenuView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBCadastro1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -222,7 +252,7 @@ public class FuncionarioView extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -253,11 +283,12 @@ public class FuncionarioView extends javax.swing.JFrame {
     private javax.swing.JTextField campoNome;
     private javax.swing.JTextField campoSenha;
     private javax.swing.JButton jBCadastro;
+    private javax.swing.JButton jBCadastro1;
     private javax.swing.JButton jBLimpar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
