@@ -8,6 +8,13 @@ CREATE TABLE IF NOT EXISTS usuario (
 	PRIMARY KEY (id_user) 
 );
 
-INSERT INTO usuario (login_user, senha_user ) VALUES ("login", "123456");
-INSERT INTO usuario (login_user, senha_user ) VALUES ("login", "123456");
+create table if not exists funcionario(
+id_func int primary key not null ,
+nome_func varchar(50),
+cpf_func int not null,
+cargo_func varchar(30),
+senha_func varchar(50) not null
+);
 
+INSERT INTO usuario (login_user, senha_user ) VALUES ("login", "123456");
+INSERT INTO usuario (login_user, senha_user ) VALUES ("login", "123456");
