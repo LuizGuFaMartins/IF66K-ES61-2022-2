@@ -14,10 +14,20 @@ import com.myproject.project_if66k.models.Cliente;
 
 public class ClienteDAO {
     
-public void Create(Cliente fun){        
-        Connection con = ConnectionFactory.openConnection();
+    public ConnectionFactory connectionFactory;
+    
+    public ClienteDAO(){
+        this.connectionFactory =  new ConnectionFactory("dev");
+    }
+    
+    public ClienteDAO(String env){
+        this.connectionFactory = new ConnectionFactory(env);
+    }
+    
+    public void Create(Cliente fun) {
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
-        
+
         try {
             stmt = con.prepareStatement("INSERT INTO cliente (cpf_cli, nome_cli, tel_cli, cep_cli, estado_cli, cidade_cli, logradouro_cli, bairro) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             stmt.setString(1, fun.getCpf_cli());
@@ -27,26 +37,26 @@ public void Create(Cliente fun){
             stmt.setString(5, fun.getEstado_cli());
             stmt.setString(6, fun.getCidade_cli());
             stmt.setString(7, fun.getLogradouro_cli());
-            stmt.setString(8, fun.getBairro_cli());            
-            
+            stmt.setString(8, fun.getBairro_cli());
+
             stmt.executeUpdate();
-            
+
             JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao salvar!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (NumberFormatException ex) {
+        } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao salvar!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
-        } 
+            connectionFactory.closeConnection(con, stmt);
+        }
     }
-    
-    public void Update(Cliente fun){        
-        Connection con = ConnectionFactory.openConnection();
+
+    public void Update(Cliente fun) {
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
-        
+
         try {
             stmt = con.prepareStatement("UPDATE cliente SET cpf_cli = ?, nome_cli = ?, tel_cli = ?, cep_cli = ?, estado_cli = ?, cidade_cli = ?, logradouro_cli = ?, bairro = ? WHERE id_cli = ?");
             stmt.setString(1, fun.getCpf_cli());
@@ -58,35 +68,35 @@ public void Create(Cliente fun){
             stmt.setString(7, fun.getLogradouro_cli());
             stmt.setString(8, fun.getBairro_cli());
             stmt.setInt(9, fun.getId_cli());
-            
+
             stmt.executeUpdate();
-            
+
             JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (NumberFormatException ex) {
+        } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao salvar!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
+            connectionFactory.closeConnection(con, stmt);
         }
     }
-    
-    public List<Cliente> read(){
-        Connection con = ConnectionFactory.openConnection();
+
+    public List<Cliente> read() {
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
-        ResultSet rs = null;        
-       
+        ResultSet rs = null;
+
         List<Cliente> funcionarios = new ArrayList<>();
-        
-        try {           
-            stmt = con.prepareStatement("SELECT * FROM cliente"); 
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM cliente");
             rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                Cliente func = new Cliente(); 
-                
+
+            while (rs.next()) {
+                Cliente func = new Cliente();
+
                 func.setId_cli(rs.getInt("id_cli"));
                 func.setCpf_cli(rs.getString("cpf_cli"));
                 func.setNome_cli(rs.getString("nome_cli"));
@@ -96,35 +106,35 @@ public void Create(Cliente fun){
                 func.setCidade_cli(rs.getString("cidade_cli"));
                 func.setLogradouro_cli(rs.getString("logradouro_cli"));
                 func.setBairro_cli(rs.getString("bairro"));
-                
+
                 funcionarios.add(func);
-                
+
             }
-        } catch (SQLException ex) {    
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Algo deu errado!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            connectionFactory.closeConnection(con, stmt, rs);
         }
-        
+
         return funcionarios;
     }
-    
-    public List<Cliente> readNome(String nome){
-        Connection con = ConnectionFactory.openConnection();
+
+    public List<Cliente> readNome(String nome) {
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
-        ResultSet rs = null;        
-       
+        ResultSet rs = null;
+
         List<Cliente> funcionarios = new ArrayList<>();
-        
-        try {           
-            stmt = con.prepareStatement("SELECT * FROM cliente WHERE nome_cli LIKE ?"); 
-            stmt.setString(1, "%"+nome+"%");
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM cliente WHERE nome_cli LIKE ?");
+            stmt.setString(1, "%" + nome + "%");
             rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                Cliente func = new Cliente(); 
-                
+
+            while (rs.next()) {
+                Cliente func = new Cliente();
+
                 func.setId_cli(rs.getInt("id_cli"));
                 func.setCpf_cli(rs.getString("cpf_cli"));
                 func.setNome_cli(rs.getString("nome_cli"));
@@ -134,34 +144,35 @@ public void Create(Cliente fun){
                 func.setCidade_cli(rs.getString("cidade_cli"));
                 func.setLogradouro_cli(rs.getString("logradouro_cli"));
                 func.setBairro_cli(rs.getString("bairro"));
-                
+
                 funcionarios.add(func);
-                
+
             }
-        } catch (SQLException ex) {    
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Algo deu errado!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            connectionFactory.closeConnection(con, stmt, rs);
         }
-        
+
         return funcionarios;
     }
-    public List<Cliente> readID(int id){
-        Connection con = ConnectionFactory.openConnection();
+
+    public List<Cliente> readID(int id) {
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
-        ResultSet rs = null;        
-       
+        ResultSet rs = null;
+
         List<Cliente> funcionarios = new ArrayList<>();
-        
-        try {           
-            stmt = con.prepareStatement("SELECT * FROM cliente WHERE id_cli = ?"); 
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM cliente WHERE id_cli = ?");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                Cliente func = new Cliente(); 
-                
+
+            while (rs.next()) {
+                Cliente func = new Cliente();
+
                 func.setId_cli(rs.getInt("id_cli"));
                 func.setCpf_cli(rs.getString("cpf_cli"));
                 func.setNome_cli(rs.getString("nome_cli"));
@@ -171,36 +182,36 @@ public void Create(Cliente fun){
                 func.setCidade_cli(rs.getString("cidade_cli"));
                 func.setLogradouro_cli(rs.getString("logradouro_cli"));
                 func.setBairro_cli(rs.getString("bairro"));
-                
+
                 funcionarios.add(func);
-                
+
             }
-        } catch (SQLException ex) {    
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Algo deu errado!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            connectionFactory.closeConnection(con, stmt, rs);
         }
-        
+
         return funcionarios;
     }
-    
-    public void delete(Cliente fun){        
-        Connection con = ConnectionFactory.openConnection();
+
+    public void delete(Cliente fun) {
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
-        
+
         try {
             stmt = con.prepareStatement("DELETE FROM cliente WHERE id_cli = ?");
             stmt.setInt(1, fun.getId_cli());
-            
+
             stmt.executeUpdate();
-            
+
             JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao Excluir!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
+            connectionFactory.closeConnection(con, stmt);
         }
     }
 }

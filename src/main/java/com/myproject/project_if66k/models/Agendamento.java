@@ -1,4 +1,4 @@
-package model.bean;
+package com.myproject.project_if66k.models;
 
 import java.util.Date;
 

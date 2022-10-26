@@ -11,8 +11,18 @@ import javax.swing.JOptionPane;
 
 public class FuncionarioDAO {
     
+    public ConnectionFactory connectionFactory;
+    
+    public FuncionarioDAO(){
+        this.connectionFactory =  new ConnectionFactory("dev");
+    }
+    
+    public FuncionarioDAO(String env){
+        this.connectionFactory = new ConnectionFactory(env);
+    }
+    
     public void Cria(Funcionario fun){        
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
         
         try {
@@ -34,7 +44,7 @@ public class FuncionarioDAO {
             JOptionPane.showMessageDialog(null, "Erro ao salvar!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
+            connectionFactory.closeConnection(con, stmt);
         } 
     }
 }

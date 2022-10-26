@@ -1,13 +1,13 @@
 package com.myproject.project_if66k.controllers;
 
 import com.myproject.project_if66k.dao.AgendamentoDAO;
+import com.myproject.project_if66k.models.Agendamento;
 import java.util.List;
 import javax.swing.JOptionPane;
-import model.bean.Agendamento;
 
 public class AgendamentoController {
 
-    private AgendamentoDAO agendamentoDAO;
+    private AgendamentoDAO agendamentoDAO = new AgendamentoDAO("dev");
 
     public List<Agendamento> readAll() {
         return agendamentoDAO.readAll();

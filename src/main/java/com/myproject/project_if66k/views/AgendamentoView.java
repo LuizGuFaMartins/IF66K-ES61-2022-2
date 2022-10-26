@@ -2,16 +2,16 @@ package com.myproject.project_if66k.views;
 
 import com.myproject.project_if66k.controllers.AgendamentoController;
 import com.myproject.project_if66k.dao.AgendamentoDAO;
+import com.myproject.project_if66k.models.Agendamento;
 import java.awt.Color;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.bean.Agendamento;
 
 public class AgendamentoView extends javax.swing.JFrame {
 
     private static AgendamentoView telaAgendamento;
-    private AgendamentoController agendamentoController;
+    private AgendamentoController agendamentoController = new AgendamentoController();
 
     public AgendamentoView() {
         initComponents();

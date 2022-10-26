@@ -1,6 +1,7 @@
 package com.myproject.project_if66k.dao;
 
 import com.myproject.project_if66k.connection.ConnectionFactory;
+import com.myproject.project_if66k.models.Agendamento;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,13 +11,22 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.bean.Agendamento;
 
 
 public class AgendamentoDAO {
 
+    public ConnectionFactory connectionFactory;
+    
+    public AgendamentoDAO(){
+        this.connectionFactory =  new ConnectionFactory("dev");
+    }
+    
+    public AgendamentoDAO(String env){
+        this.connectionFactory = new ConnectionFactory(env);
+    }
+    
     public boolean Create(Agendamento fun) {
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
 
         try {
@@ -38,14 +48,14 @@ public class AgendamentoDAO {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
+            connectionFactory.closeConnection(con, stmt);
         }
         
         return true;
     }
 
     public boolean Update(Agendamento fun) {
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
 
         try {
@@ -66,14 +76,14 @@ public class AgendamentoDAO {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
+            connectionFactory.closeConnection(con, stmt);
         }
         
         return true;
     }
 
     public List<Agendamento> readAll() {
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
@@ -98,15 +108,16 @@ public class AgendamentoDAO {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Algo deu errado!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            connectionFactory.closeConnection(con, stmt, rs);
         }
 
         return funcionarios;
     }
 
     public List<Agendamento> readById(int id) {
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
@@ -133,14 +144,14 @@ public class AgendamentoDAO {
             JOptionPane.showMessageDialog(null, "Algo deu errado!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            connectionFactory.closeConnection(con, stmt, rs);
         }
 
         return funcionarios;
     }
 
     public List<Agendamento> readByDate(String data) {
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
@@ -167,14 +178,14 @@ public class AgendamentoDAO {
             JOptionPane.showMessageDialog(null, "Algo deu errado!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            connectionFactory.closeConnection(con, stmt, rs);
         }
 
         return funcionarios;
     }
 
     public boolean delete(Agendamento fun) {
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
 
         try {
@@ -189,7 +200,7 @@ public class AgendamentoDAO {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
+            connectionFactory.closeConnection(con, stmt);
         }
         
         return true;
