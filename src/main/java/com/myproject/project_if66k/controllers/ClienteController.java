@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ClienteController {
     
-    private ClienteDAO fdao = new ClienteDAO();
+    private ClienteDAO fdao;
             
     public List<Cliente> read() {
         return fdao.read();

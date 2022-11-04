@@ -14,8 +14,18 @@ import javax.swing.JOptionPane;
 
 public class LoginDAO {
     
+    public ConnectionFactory connectionFactory;
+    
+    public LoginDAO(){
+        this.connectionFactory =  new ConnectionFactory("dev");
+    }
+    
+    public LoginDAO(String env){
+        this.connectionFactory = new ConnectionFactory(env);
+    }
+    
     public boolean readUser(String login_user, String senha_user){
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;   
         
@@ -35,7 +45,7 @@ public class LoginDAO {
         } catch (SQLException ex) {             
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            connectionFactory.closeConnection(con, stmt, rs);
         }
         
         return isUser;
