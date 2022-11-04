@@ -11,11 +11,8 @@ CREATE TABLE IF NOT EXISTS usuario (
 INSERT INTO usuario (login_user, senha_user ) VALUES ("login", "123456");
 INSERT INTO usuario (login_user, senha_user ) VALUES ("login", "123456");
 
-<<<<<<< HEAD:scriptBanco/scriptManualBanco.sql
-CREATE TABLE IF NOT EXISTS cliente (
-=======
 CREATE TABLE IF NOT EXISTS Cliente (
->>>>>>> a3731e7691be5e972881478ec4f0a010c7a6319d:scriptBanco/scriptForPets.sql
+
   id_cli INT NOT NULL AUTO_INCREMENT,
   cpf_cli VARCHAR(20) NOT NULL,
   nome_cli VARCHAR(45) NOT NULL,
@@ -28,7 +25,6 @@ CREATE TABLE IF NOT EXISTS Cliente (
   PRIMARY KEY (id_cli)
 );
 
-<<<<<<< HEAD:scriptBanco/scriptManualBanco.sql
 INSERT INTO cliente (cpf_cli, nome_cli, tel_cli, cep_cli, estado_cli, cidade_cli, logradouro_cli, bairro) 
 VALUES ("333.123.789-23", "Jeremias", "(43) 99999-8888", "78945-444", "PR", "Curitiba", "Corguinho", "Fim da rua");
 INSERT INTO cliente (cpf_cli, nome_cli, tel_cli, cep_cli, estado_cli, cidade_cli, logradouro_cli, bairro) 
@@ -49,7 +45,7 @@ INSERT INTO animal (id_ani, nome_ani, raca_ani, porte_ani, dataNasc_ani, idade_a
 VALUES ("3", "Bolinha", "Labrador", "Medio", "12/12/2012", "9", "3");
 INSERT INTO animal (id_ani, nome_ani, raca_ani, porte_ani, dataNasc_ani, idade_ani, Cliente_id_cli) 
 VALUES ("11", "Negresco", "Salsicha", "Pequeno", "03/04/2019", "3", "11");
-=======
+
 INSERT INTO cliente (cpf_cli, nome_cli, tel_cli, cep_cli, estado_cli, cidade_cli, logradouro_cli, bairro) VALUES ("333.123.789-23", "Jeremias", "(43) 99999-8888", "78945-444", "PR", "Curitiba", "Corguinho", "Fim da rua");
 INSERT INTO cliente (cpf_cli, nome_cli, tel_cli, cep_cli, estado_cli, cidade_cli, logradouro_cli, bairro) VALUES ("333.123.789-21", "Florildas", "(50) 97777-8888", "78945-444", "PR", "Curitiba", "Corguinho", "Fim da rua");
 
@@ -73,4 +69,3 @@ CREATE TABLE IF NOT EXISTS agendamento (
   FOREIGN KEY (funcionario_id_fun) REFERENCES funcionario (id_func),
   FOREIGN KEY (cliente_id_cli) REFERENCES Cliente (id_cli)
 )
->>>>>>> a3731e7691be5e972881478ec4f0a010c7a6319d:scriptBanco/scriptForPets.sql
