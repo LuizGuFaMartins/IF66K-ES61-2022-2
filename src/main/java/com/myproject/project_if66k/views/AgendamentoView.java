@@ -44,22 +44,6 @@ public class AgendamentoView extends javax.swing.JFrame {
         }
     }
 
-    /*public void readJTableForNome(String nome){
-        DefaultTableModel modelo = (DefaultTableModel) tabelaFunc.getModel();
-        modelo.setNumRows(0);
-        AgendamentoDAO fdao = new AgendamentoDAO();
-        
-        for(Agendamento f: fdao.readNome(nome)){
-            modelo.addRow(new Object[]{
-                f.getId_func(),
-                f.getNome_func(),
-                f.getCpf_func(),
-                f.getCargo_func(),
-                f.getSenha_func(),
-                f.getId_adm()
-            });
-        }
-    }   */
     public int readJTableForId(int id) {
 
         DefaultTableModel modelo = (DefaultTableModel) tabelaAge.getModel();
