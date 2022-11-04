@@ -24,6 +24,25 @@ CREATE TABLE IF NOT EXISTS Cliente (
   PRIMARY KEY (id_cli)
 );
 
+INSERT INTO cliente (cpf_cli, nome_cli, tel_cli, cep_cli, estado_cli, cidade_cli, logradouro_cli, bairro) 
+VALUES ("333.123.789-23", "Jeremias", "(43) 99999-8888", "78945-444", "PR", "Curitiba", "Corguinho", "Fim da rua");
+INSERT INTO cliente (cpf_cli, nome_cli, tel_cli, cep_cli, estado_cli, cidade_cli, logradouro_cli, bairro) 
+VALUES ("333.123.789-21", "Florildas", "(50) 97777-8888", "78945-444", "PR", "Curitiba", "Corguinho", "Fim da rua");
+
+CREATE TABLE IF NOT EXISTS animal (
+  id_ani INT NOT NULL AUTO_INCREMENT,
+  nome_ani VARCHAR(45) NOT NULL,
+  raca_ani VARCHAR(45) NOT NULL,
+  porte_ani VARCHAR(45) NOT NULL,
+  dataNasc_ani VARCHAR(45) NOT NULL,
+  idade_ani VARCHAR(45) NOT NULL,
+  Cliente_id_cli VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id_ani)
+);
+
+INSERT INTO usuario (login_user, senha_user ) VALUES ("login", "123456");
+INSERT INTO usuario (login_user, senha_user ) VALUES ("login", "123456");
+
 INSERT INTO cliente (cpf_cli, nome_cli, tel_cli, cep_cli, estado_cli, cidade_cli, logradouro_cli, bairro) VALUES ("333.123.789-23", "Jeremias", "(43) 99999-8888", "78945-444", "PR", "Curitiba", "Corguinho", "Fim da rua");
 INSERT INTO cliente (cpf_cli, nome_cli, tel_cli, cep_cli, estado_cli, cidade_cli, logradouro_cli, bairro) VALUES ("333.123.789-21", "Florildas", "(50) 97777-8888", "78945-444", "PR", "Curitiba", "Corguinho", "Fim da rua");
 
@@ -47,3 +66,4 @@ CREATE TABLE IF NOT EXISTS agendamento (
   FOREIGN KEY (funcionario_id_fun) REFERENCES funcionario (id_func),
   FOREIGN KEY (cliente_id_cli) REFERENCES Cliente (id_cli)
 )
+
