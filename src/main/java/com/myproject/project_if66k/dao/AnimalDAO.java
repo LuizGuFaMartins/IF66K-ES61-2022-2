@@ -12,10 +12,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+import com.myproject.project_if66k.connection.ConnectionFactory;
+import com.myproject.project_if66k.models.Animal;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 public class AnimalDAO {
+
     ConnectionFactory connectionFactory = new ConnectionFactory("dev"); 
     public void Create(Animal fun){        
-       Connection con = connectionFactory.openConnection();
+       Connection con = connectionFactory.openConnection();        
         PreparedStatement stmt = null;
         
         try {
@@ -43,6 +56,7 @@ public class AnimalDAO {
     
     public void Update(Animal fun){        
         Connection con = connectionFactory.openConnection();
+
         PreparedStatement stmt = null;
         
         try {
@@ -105,6 +119,7 @@ public class AnimalDAO {
     
     public List <Animal> readNome(String nome){
         Connection con = connectionFactory.openConnection();
+
         PreparedStatement stmt = null;
         ResultSet rs = null;        
        
