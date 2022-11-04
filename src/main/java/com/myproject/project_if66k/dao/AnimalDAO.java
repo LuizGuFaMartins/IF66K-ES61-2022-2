@@ -13,8 +13,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class AnimalDAO {
+    ConnectionFactory connectionFactory = new ConnectionFactory("dev"); 
     public void Create(Animal fun){        
-        Connection con = ConnectionFactory.openConnection();
+       Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
         
         try {
@@ -36,12 +37,12 @@ public class AnimalDAO {
             JOptionPane.showMessageDialog(null, "Erro ao salvar!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
+            connectionFactory.closeConnection(con, stmt);
         } 
     }
     
     public void Update(Animal fun){        
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
         
         try {
@@ -63,12 +64,12 @@ public class AnimalDAO {
             JOptionPane.showMessageDialog(null, "Erro ao salvar!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
+            connectionFactory.closeConnection(con, stmt);
         }
     }
     
     public List <Animal> read(){
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;        
        
@@ -96,14 +97,14 @@ public class AnimalDAO {
             JOptionPane.showMessageDialog(null, "Algo deu errado!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            connectionFactory.closeConnection(con, stmt, rs);
         }
         
         return funcionarios;
     }
     
     public List <Animal> readNome(String nome){
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;        
        
@@ -132,13 +133,13 @@ public class AnimalDAO {
             JOptionPane.showMessageDialog(null, "Algo deu errado!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            connectionFactory.closeConnection(con, stmt, rs);
         }
         
         return funcionarios;
     }
     public List <Animal> readID(int id){
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;        
        
@@ -167,13 +168,13 @@ public class AnimalDAO {
             JOptionPane.showMessageDialog(null, "Algo deu errado!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            connectionFactory.closeConnection(con, stmt, rs);
         }
         
         return funcionarios;
     }
     public List <Animal> readIDCliente(int id){
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;        
        
@@ -202,14 +203,14 @@ public class AnimalDAO {
             JOptionPane.showMessageDialog(null, "Algo deu errado!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            connectionFactory.closeConnection(con, stmt, rs);
         }
         
         return funcionarios;
     }
     
     public void delete(Animal fun){        
-        Connection con = ConnectionFactory.openConnection();
+        Connection con = connectionFactory.openConnection();
         PreparedStatement stmt = null;
         
         try {
@@ -223,7 +224,7 @@ public class AnimalDAO {
             JOptionPane.showMessageDialog(null, "Erro ao Excluir!");
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
+            connectionFactory.closeConnection(con, stmt);
         }
     }
 }
